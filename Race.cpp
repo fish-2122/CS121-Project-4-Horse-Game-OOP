@@ -4,11 +4,11 @@
 
 Race::Race() {
 	for (int i = 0; i < NUM_HORSES; i++) {
-		Race::horses[i].setIndex = i;
+		Race::horses[i].setIndex(i);
 	}
 }
 
-Race::start() {
+void Race::start() {
 	for (int i = 0; i < NUM_HORSES; i++) {
 		Race::horses[i].printLane();
 	}
@@ -25,6 +25,7 @@ Race::start() {
 			for (int i = 0; i < NUM_HORSES; i++) {
 				Race::horses[i].printLane();
 			}
+			std::cout << std::endl;
 
 			if (Race::horses[i].isWinner() == true) {
 				isThereAWinner = true;

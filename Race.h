@@ -1,5 +1,6 @@
 #ifndef RACE_H
 #define RACE_H
+#include "Horse.h"
 
 class Race {
 	private:

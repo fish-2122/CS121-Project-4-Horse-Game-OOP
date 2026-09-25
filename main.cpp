@@ -2,7 +2,8 @@
 #include "Horse.h"
 
 int main() {
-	Horse horse = Horse(0, 15);
-	horse.printLane();
+	Race race;
+	race.start();
+	
 	return 0;
 }

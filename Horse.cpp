@@ -50,7 +50,7 @@ void Horse::printLane() {
 
 bool Horse::isWinner() {
 	bool retVal = false;
-	if (Horse::position >= Horse::trackLength) {
+	if (Horse::position >= Horse::trackLength-1) {
 		retVal = true;
 	}
 	return retVal;

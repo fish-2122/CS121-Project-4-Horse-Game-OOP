@@ -3,7 +3,9 @@
 #include "Race.h"
 
 Race::Race() {
-	
+	for (int i = 0; i < NUM_HORSES; i++) {
+		Race::horses[i].setIndex = i;
+	}
 }
 
 Race::start() {
@@ -15,12 +17,19 @@ Race::start() {
 	while (keepGoing) {
 		bool isThereAWinner = false;
 		
-		for (int horse = 0; horse < NUM_HORSES; horse++) {
-			
-		}
+		for (int i = 0; i < NUM_HORSES; i++) {
+			if (isThereAWinner == false) {
+				Race::horses[i].advance();
+			}
 
-		if (isThereAWinner) {
-			keepGoing = false;
+			for (int i = 0; i < NUM_HORSES; i++) {
+				Race::horses[i].printLane();
+			}
+
+			if (Race::horses[i].isWinner() == true) {
+				isThereAWinner = true;
+				keepGoing = false;
+			}
 		}
 	}
 }

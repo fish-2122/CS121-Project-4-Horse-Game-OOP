@@ -14,11 +14,12 @@ void Race::start() {
 	}
 	std::cout << std::endl;
 	bool keepGoing = true;
+	int winningHorse = -1;
 	while (keepGoing) {
 		bool isThereAWinner = false;
 		
 		for (int i = 0; i < NUM_HORSES; i++) {
-			if (isThereAWinner == false) {
+			if (keepGoing == true) {
 				Race::horses[i].advance();
 			}
 
@@ -28,9 +29,10 @@ void Race::start() {
 			std::cout << std::endl;
 
 			if (Race::horses[i].isWinner() == true) {
-				isThereAWinner = true;
 				keepGoing = false;
+				winningHorse = i;
 			}
 		}
 	}
+	std::cout << "The winning horse is horse number " << winningHorse << "!" << std::endl;
 }

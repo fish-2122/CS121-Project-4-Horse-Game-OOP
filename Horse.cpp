@@ -9,10 +9,21 @@ Horse::Horse() {
 	Horse::trackLength = 15;
 }
 
-Horse::Horse(int positon, int index, int trackLength) {
-	Horse::position = position;
+Horse::Horse(int index, int trackLength) {
 	Horse::index = index;
 	Horse::trackLength = trackLength;
+}
+
+void Horse::setPosition(int num) {
+	Horse::position = num;
+}
+
+void Horse::setIndex(int num) {
+	Horse::index = num;
+}
+
+void Horse::setTrackLength(int num) {
+	Horse::trackLength = num;
 }
 
 void Horse::advance() {
@@ -23,21 +34,21 @@ void Horse::advance() {
 	Horse::position += randNum;
 }
 
-void printLane() {
+void Horse::printLane() {
 	char array[Horse::trackLength];
 	for (int i = 0; i < Horse::trackLength; i++) {
 		array[i] = '*';
 	}
-	array[Horse::position] = Horse::index;
+	array[Horse::position] = Horse::index + '0';
 	
 	std::cout << "[ ";
-	for (int i = 0; i < Horse::trackLength; i++
+	for (int i = 0; i < Horse::trackLength; i++) {
 		std::cout << array[i] << " ";
 	}
 	std::cout << "]" << std::endl;
 }
 
-bool isWinner() {
+bool Horse::isWinner() {
 	bool retVal = false;
 	if (Horse::position >= Horse::trackLength) {
 		retVal = true;

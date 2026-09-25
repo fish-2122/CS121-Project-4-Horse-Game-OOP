@@ -2,7 +2,7 @@
 #include "Horse.h"
 
 int main() {
-	Horse horse;
+	Horse horse = Horse(0, 15);
 	horse.printLane();
 	return 0;
 }
